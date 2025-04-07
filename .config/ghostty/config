@@ -7,6 +7,7 @@ keybind=super+j=goto_split:down
 keybind=super+l=goto_split:right
 keybind=super+h=goto_split:left
 keybind=super+w=close_surface
+shell-integration = fish
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
 # options that they want to change from the default.
