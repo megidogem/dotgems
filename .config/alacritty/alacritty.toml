@@ -1,0 +1,25 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/gruvbox_dark.toml"
+]
+
+[window]
+padding = { x = 5, y = 5 }
+dynamic_padding = true
+#decorations = "None"
+opacity = 0.95
+
+[scrolling]
+history = 20000
+multiplier = 5
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 12
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_timeout = 0
+
+[mouse]
+hide_when_typing = true
