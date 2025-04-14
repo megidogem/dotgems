@@ -9,6 +9,10 @@ set $right l
 set $term alacritty
 set $menu bemenu-run -c -W 0.1 -B 1 -p "" -l 5
 
+font pango:JetBrainsMono Nerd Font Regular 12
+
+bindsym $mod+Shift+p exec systemctl suspend && swaylock -f -c 282828
+
 exec qbittorrent
 exec gammastep -t 6500:3200 -l 40:-4
 exec mako -c ~/.config/mako/config
@@ -41,12 +45,12 @@ bindsym Ctrl+mod1+l exec swaylock -f -c 282828
 #
 # Example configuration:
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+input "1267:12734:MSFT0001:01_04F3:31BE_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -171,19 +175,20 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 10
+    bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 10
 
 bar {
     position top
 
     status_command i3status
     #status_command while date +'%d/%m/%Y %X'; do sleep 1; done
+    tray_output none
 
     colors {
         statusline #ebdbb2
         background #282828
-        inactive_workspace #282828ff #282828ff #b16286
+        inactive_workspace #282828ff #282828ff #ebdbb2
         focused_workspace #b16286 #b16286 #282828
     }
 }

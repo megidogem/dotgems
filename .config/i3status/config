@@ -8,15 +8,24 @@ general {
 
 #order += "read_file uptime"
 order += "disk /"
-order += "wireless wlan0"
+order += "wireless wlp2s0"
 order += "ethernet enp4s0"
-#order += "battery 0"
+order += "battery 0"
 #order += "cpu_temperature 0"
 order += "memory"
 order += "load"
+order += "volume master"
 order += "tztime local"
 
-wireless wlan0 {
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+wireless wlp2s0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: </3"
 }
@@ -32,8 +41,8 @@ battery 0 {
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
         status_unk = "? UNK"
-        status_full = "☻ FULL"
-        status_idle = "☻ IDLE"
+        status_full = "FULL"
+        status_idle = "IDLE"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
