@@ -1,3 +1,7 @@
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    dbus-run-session sway
+fi
+alias sw='exec dbus-run-session sway'
 # Como me abras nano te desheredo ordenador tonto
 export EDITOR=vim
 
@@ -10,6 +14,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=20000
 # Append to history instead of overwriting
 shopt -s histappend
+
+alias xb='sh ~/Scripts/xbacklight.sh'
 
 alias nix-gc='sudo nix-collect-garbage -d'  # Clean up Nix store
 alias nyx='cd /etc/nixos/'
