@@ -32,10 +32,10 @@ bindsym Shift+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .
 # Example configuration:
 #
 bindsym Ctrl+mod1+l exec swaylock -f -c 282828
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 282828' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 282828'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 282828' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 282828'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -189,12 +189,23 @@ bar {
         statusline #ebdbb2
         background #282828
         inactive_workspace #282828ff #282828ff #ebdbb2
-        focused_workspace #b16286 #b16286 #282828
+        focused_workspace #cc241d #cc241d #282828
     }
 }
 # class                 border  backgr. text    indicator child_border
-client.focused          #b16286 #b16286 #fbf1c7 #8ec07c   #b16286
+client.focused          #cc241d #cc241d #fbf1c7 #fabd2f   #cc241d
 client.unfocused        #a89984 #282828 #a89984 #282828   #282828
 client.focused_inactive #a89984 #282828 #a89984 #282828   #282828
 
 include /etc/sway/config.d/*
+
+corner_radius 0
+shadows enable
+blur enable
+blur_radius 1
+blur_passes 2
+default_dim_inactive 0.2
+
+gaps inner 5
+gaps outer 5
+
